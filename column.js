@@ -5,6 +5,8 @@ var column = function(game) {
     this.imgLoad1= false;
     this.img =null;
     this.img1= null;
+    this.width = 52;
+    this.height = 320;
     this.x = 500;
     this.y= Math.floor(Math.random()*200 +190);
     var self = this;
@@ -31,7 +33,8 @@ var column = function(game) {
     }
     this.draw = function() {
         if(self.imgLoad) {
-            self.game.context.drawImage(self.img1, this.x,self.y-125-320);
+            // middle number is distance of 2 column
+            self.game.context.drawImage(self.img1, this.x,self.y-self.game.distance-self.height);
             self.game.context.drawImage(self.img, this.x,self.y); 
         }
     }   

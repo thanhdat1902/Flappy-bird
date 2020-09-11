@@ -1,5 +1,7 @@
 var bird = function(game) {
     this.game = game;
+    this.width = 34;
+    this.height = 24;
     this.images = [];
     this.imgLoad = false;
     this.img1Load = false;
@@ -42,9 +44,7 @@ var bird = function(game) {
     this.flap = function() {
         self.game.canvas.addEventListener('click', elem);
     }
-    this.drop = function() {
-        self.game.canvas.off("click", true);
-    }
+    
     this.update = function() {
         // Update speed for bird
         self.speed += self.accelerate;
@@ -56,6 +56,7 @@ var bird = function(game) {
 
         // Check game over
         if(self.y >= 400-24) {
+            self.y= 400-24;
             self.game.gameOver = true;
         }
         
